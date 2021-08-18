@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6446731079903216657}
   m_Layer: 0
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -76,4 +76,4 @@ TerrainCollider:
   m_Material: {fileID: 0}
   m_Enabled: 1
   m_TerrainData: {fileID: 15600000, guid: 400f71617214def4f85dd04d3c2112a5, type: 2}
-  m_EnableTreeColliders: 1
+  m_EnableTreeColliders: 0

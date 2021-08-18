@@ -5,22 +5,30 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-
+    [Header ("New Input System Settings")]
     [SerializeField] InputAction movement; //NEW
     [SerializeField] InputAction fire; //NEW
 
+    [Header ("General Setup Settings")]
+    [Tooltip("How fast ship moves up and down based on player input")]
     [SerializeField] float speed = 10f;
     [SerializeField] float xRange = 12f;
     [SerializeField] float yRange = 8f;
 
+    [Header ("Laser Gun Array")]
+    [Tooltip("Add all player lasers here")]
     [SerializeField] GameObject[] lasers;
 
+    [Header ("Screen position based tuning")]
     [SerializeField] float positionPicthFactor = -2f;
-    [SerializeField] float controlPitchFactor = -10f;
-
     [SerializeField] float positionYawFactor = -1f;
+    
+    [Header ("Screen input based tuning")]
+    [SerializeField] float controlPitchFactor = -10f;
     [SerializeField] float controlRollFactor = -15f;
         
+    [SerializeField] ParticleSystem shoot1;
+    [SerializeField] ParticleSystem shoot2;
 
     float xMove;
     float yMove;
@@ -113,26 +121,33 @@ public class PlayerController : MonoBehaviour
 
      if(fire.ReadValue<float>() > 0.5)
      {
-        Debug.Log("I'm shooting");
-        LaserOn();
+         LaserOn(true);
+        shoot1.Play();
+        shoot2.Play();
+         Debug.Log("I'm shooting");
      }
      else
      {
-         LaserOff();
+         LaserOn(false);
          Debug.Log("I'm not shooting"); 
      }
 
-     void LaserOn()
+     void LaserOn(bool isActive)
      {
-         //for each of the lasers that we have, turn them on
+         foreach (GameObject laser in lasers)
+         {
+             var emissionModule = laser.GetComponent<ParticleSystem>().emission;
+             emissionModule.enabled = isActive;
+         }
+         
      }
 
-     void LaserOff()
-     {
-         //for each of the lasers that we have, turn them off
-     }
+    
+     //for each loop - control flow statement for traversing a collection, its a way of saying "do this to everthing in our collection"
+     // how to write --  foreach (ObjectType iten in things) - the object can be a game object or intager or string
+     //  how to activate and deactivate game object -- gameObjectName.SetActive(true) / gameObjectName.SetActive(false)
 
-     
+
  }
 
 
