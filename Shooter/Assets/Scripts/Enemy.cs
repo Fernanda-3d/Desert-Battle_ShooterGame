@@ -5,6 +5,11 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 
+     void Start() 
+    {
+       this.gameObject.SetActive(false);
+    }
+
     [SerializeField] GameObject enemyDeath1;
     [SerializeField] GameObject enemyDeath2;
     [SerializeField] GameObject enemyDeath3;

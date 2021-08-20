@@ -18,7 +18,7 @@ public class Enemy_anim : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Wind();
+        Wind();        
     }
 
     void Wind()
@@ -52,6 +52,6 @@ public class Enemy_anim : MonoBehaviour
         renderer.SetBlendShapeWeight(3, currentBlendShapeValue - anim_speed * Time.deltaTime);
     }
 
-
+    
 
 }
