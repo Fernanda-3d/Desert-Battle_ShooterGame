@@ -5,10 +5,8 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 
-     void Start() 
-    {
-       this.gameObject.SetActive(false);
-    }
+    ScoreBoard scoreBoard;
+    [SerializeField] int scorePerHit = 1;
 
     [SerializeField] GameObject enemyDeath1;
     [SerializeField] GameObject enemyDeath2;
@@ -17,7 +15,28 @@ public class Enemy : MonoBehaviour
 
      [SerializeField] Transform parent;
 
+      void Start() 
+    {
+       this.gameObject.SetActive(false);
+       scoreBoard = FindObjectOfType<ScoreBoard>();
+    }
+
     private void OnParticleCollision(GameObject other) 
+    {
+       if(other.gameObject.tag == "Player")
+        {
+            Score();
+
+            KillEnemy();
+        }
+
+    }
+     private void Score()
+    {
+        scoreBoard.IncreaseScore(scorePerHit); //is communicating with scoreboard script
+    }
+
+    private void KillEnemy()
     {
         GameObject vfx1 = Instantiate(enemyDeath1, transform.position, Quaternion.identity);
         GameObject vfx2 = Instantiate(enemyDeath2, transform.position, Quaternion.identity);
@@ -28,9 +47,10 @@ public class Enemy : MonoBehaviour
         vfx2.transform.parent = parent;
         vfx3.transform.parent = parent;
         vfx4.transform.parent = parent;
-        
-       //Debug.Log($"I'm hit! by {other.gameObject.name}" );
-       Destroy(gameObject);
+
+        //Debug.Log($"I'm hit! by {other.gameObject.name}" );
+        Destroy(gameObject);
     }
-    
+
+   
 }

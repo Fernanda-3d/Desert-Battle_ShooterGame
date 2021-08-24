@@ -13,22 +13,47 @@ public class CollisionHandler : MonoBehaviour
     [SerializeField] ParticleSystem explode4;
     [SerializeField] ParticleSystem explode5;
     [SerializeField] ParticleSystem explode6;
-    
+    [SerializeField] GameObject redUI;
+
+    float redDelay = 0.5f;
+
+        
     float waitForSeconds = 1f;
+
+    void Start()
+    {
+        redUI.SetActive(false);
+    }
 
    void OnTriggerEnter(Collider other) 
     {
-        
-             StartCrashSequence();
+        LifeController.health -= 1;
+        redUI.SetActive(true);
+        Invoke("RedOff", redDelay);
+
+         if(LifeController.health < 1)
+        {
+         StartCrashSequence();
+        }
        
         //Debug.Log($"{this.name} --Triggered by-- {other.gameObject.name}");
         //string interpolation = represented by $ - Doc: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/tokens/interpolated
         
     }
+    void RedOff()
+    {
+        redUI.SetActive(false);
+    }
 
     void OnParticleCollision(GameObject other) 
     {
-        StartCrashSequence();
+        LifeController.health -= 1;
+
+        if(LifeController.health < 1)
+        {
+         StartCrashSequence();
+        }
+       
     }
 
     void StartCrashSequence()
@@ -39,6 +64,7 @@ public class CollisionHandler : MonoBehaviour
         explode4.Play();
         explode5.Play();
         explode6.Play();
+        redUI.SetActive(true);
         
         //Disable player controlers- script
         dronePart1.SetActive(false);

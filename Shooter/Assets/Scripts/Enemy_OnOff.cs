@@ -19,11 +19,14 @@ public class Enemy_OnOff : MonoBehaviour
 
     public void EnemyOff()
     {
-        enemy.SetActive(false);
+       enemy.SetActive(false);
+       // this.GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
+        
     }
 
     public void EnemyOn()
     {
         enemy.SetActive(true);
+       //  this.GetComponentInChildren<SkinnedMeshRenderer>().enabled = true;
     }
 }
