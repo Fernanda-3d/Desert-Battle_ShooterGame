@@ -21,4 +21,5 @@ public class ScoreBoard : MonoBehaviour
         scoreText.text = score.ToString();
         
     }
+
 }

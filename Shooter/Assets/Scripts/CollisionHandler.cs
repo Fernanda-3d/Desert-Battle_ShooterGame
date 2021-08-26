@@ -14,6 +14,7 @@ public class CollisionHandler : MonoBehaviour
     [SerializeField] ParticleSystem explode5;
     [SerializeField] ParticleSystem explode6;
     [SerializeField] GameObject redUI;
+    
 
     float redDelay = 0.5f;
 
@@ -27,7 +28,9 @@ public class CollisionHandler : MonoBehaviour
 
    void OnTriggerEnter(Collider other) 
     {
-        LifeController.health -= 1;
+         if(other.gameObject.tag == "Enemy")
+         {
+             LifeController.health -= 1;
         redUI.SetActive(true);
         Invoke("RedOff", redDelay);
 
@@ -35,7 +38,9 @@ public class CollisionHandler : MonoBehaviour
         {
          StartCrashSequence();
         }
-       
+
+         }
+        
         //Debug.Log($"{this.name} --Triggered by-- {other.gameObject.name}");
         //string interpolation = represented by $ - Doc: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/tokens/interpolated
         
@@ -47,12 +52,16 @@ public class CollisionHandler : MonoBehaviour
 
     void OnParticleCollision(GameObject other) 
     {
-        LifeController.health -= 1;
+         if(other.gameObject.tag == "Enemy")
+         {
+             LifeController.health -= 1;
 
         if(LifeController.health < 1)
         {
          StartCrashSequence();
         }
+         }
+        
        
     }
 

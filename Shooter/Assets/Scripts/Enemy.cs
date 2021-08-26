@@ -23,12 +23,23 @@ public class Enemy : MonoBehaviour
 
     private void OnParticleCollision(GameObject other) 
     {
+              
        if(other.gameObject.tag == "Player")
         {
             Score();
 
             KillEnemy();
         }
+
+    }
+
+     void OnTriggerEnter(Collider other) 
+    {
+
+      if(other.gameObject.tag == "Shield")
+       {
+          KillEnemy();
+       }
 
     }
      private void Score()
