@@ -5,6 +5,7 @@ using UnityEngine;
 public class pickup_power : MonoBehaviour
 {
     [SerializeField] GameObject shield;
+    [SerializeField] GameObject greenUI;
     [SerializeField] ParticleSystem startshield1;
     [SerializeField] ParticleSystem startshield2;
 
@@ -19,6 +20,7 @@ public class pickup_power : MonoBehaviour
              shield.SetActive(true);  
              startshield1.Play();
              startshield2.Play();
+             greenUI.SetActive(true);
 
              PickUpController.pickup -= 1;
              

@@ -11,13 +11,10 @@ public class Shield_protect : MonoBehaviour
     void Start()
     {
         this.gameObject.SetActive(false);
-        Invoke("ShieldDelay", shieldDelay);
+        
     }
 
-    void ShieldDelay()
-    {
-        this.gameObject.SetActive(false);
-    }
+   
 
     
 
