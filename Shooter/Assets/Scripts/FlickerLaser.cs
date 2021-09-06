@@ -9,6 +9,9 @@ public class FlickerLaser : MonoBehaviour
    public ParticleSystem laser;
     public float timeDelay;
 
+    [SerializeField] AudioSource audioSource;
+
+
 
     // Update is called once per frame
     void Update()
@@ -23,10 +26,12 @@ public class FlickerLaser : MonoBehaviour
     IEnumerator FlickeringLight()
     {
         isFlickering = true;
-        laser.Play();        
+        laser.Play();  
+        audioSource.Play();     
         timeDelay = Random.Range(0.5f, 0.8f);
         yield return new WaitForSeconds(timeDelay);
         laser.Stop();
+        audioSource.Stop();
         timeDelay = Random.Range(2f, 5f);
         yield return new WaitForSeconds(timeDelay);
         isFlickering = false;

@@ -7767,6 +7767,15 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
+        time: 45.033333
+        value: -287
+        inSlope: 0.08177172
+        outSlope: 0.08177172
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
         time: 60.266666
         value: 306
         inSlope: 0
@@ -7780,6 +7789,15 @@ AnimationClip:
         value: -285
         inSlope: 0
         outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 65.416664
+        value: -268
+        inSlope: 11.2088
+        outSlope: 11.2088
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
@@ -7886,6 +7904,15 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
+        time: 45.033333
+        value: -287
+        inSlope: 0.08177172
+        outSlope: 0.08177172
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
         time: 60.266666
         value: 306
         inSlope: 0
@@ -7899,6 +7926,15 @@ AnimationClip:
         value: -285
         inSlope: 0
         outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 65.416664
+        value: -268
+        inSlope: 11.2088
+        outSlope: 11.2088
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
@@ -7931,7 +7967,28 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 4.0333333
+    functionName: Play
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 52.066666
+    functionName: Play
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 67.816666
+    functionName: Play
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
 --- !u!74 &-6281597119550321463
 AnimationClip:
   m_ObjectHideFlags: 0

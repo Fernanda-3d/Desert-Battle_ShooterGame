@@ -5,8 +5,6 @@ using UnityEngine;
 public class Shield_protect : MonoBehaviour
 {
 
-    float shieldDelay = 15f;
-
     // Start is called before the first frame update
     void Start()
     {

@@ -14,9 +14,20 @@ public class CollisionHandler : MonoBehaviour
     [SerializeField] ParticleSystem explode5;
     [SerializeField] ParticleSystem explode6;
     [SerializeField] GameObject redUI;
+    [SerializeField] GameObject greenUI;
+
+     [SerializeField] ParticleSystem startshield1;
+    [SerializeField] ParticleSystem startshield2;    
+     [SerializeField] GameObject shield;
+
+     [SerializeField] AudioSource audioSource;
+     [SerializeField] AudioClip hit;
+    [SerializeField] AudioClip explosion;
+    
     
 
     float redDelay = 0.5f;
+    float greenDelay = 3f;
 
         
     float waitForSeconds = 1f;
@@ -24,13 +35,15 @@ public class CollisionHandler : MonoBehaviour
     void Start()
     {
         redUI.SetActive(false);
+        
     }
 
    void OnTriggerEnter(Collider other) 
     {
          if(other.gameObject.tag == "Enemy")
          {
-             LifeController.health -= 1;
+          audioSource.PlayOneShot(hit);
+         LifeController.health -= 1;
         redUI.SetActive(true);
         Invoke("RedOff", redDelay);
 
@@ -40,10 +53,24 @@ public class CollisionHandler : MonoBehaviour
         }
 
          }
+
+         if(other.gameObject.tag == "Pickup")
+         {
+             shield.SetActive(true);  
+             greenUI.SetActive(true);                       
+             Invoke("GreenOff", greenDelay);
+
+         }
         
         //Debug.Log($"{this.name} --Triggered by-- {other.gameObject.name}");
         //string interpolation = represented by $ - Doc: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/tokens/interpolated
         
+    }
+
+    void GreenOff()
+    {
+        greenUI.SetActive(false);
+        shield.SetActive(false);
     }
     void RedOff()
     {
@@ -54,7 +81,10 @@ public class CollisionHandler : MonoBehaviour
     {
          if(other.gameObject.tag == "Enemy")
          {
+             audioSource.PlayOneShot(hit);
              LifeController.health -= 1;
+              redUI.SetActive(true);
+             Invoke("RedOff", redDelay);
 
         if(LifeController.health < 1)
         {
@@ -67,6 +97,7 @@ public class CollisionHandler : MonoBehaviour
 
     void StartCrashSequence()
     {
+        audioSource.PlayOneShot(explosion);
         explode1.Play();
         explode2.Play();
         explode3.Play();

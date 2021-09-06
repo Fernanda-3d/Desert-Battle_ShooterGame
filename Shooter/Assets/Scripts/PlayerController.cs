@@ -29,6 +29,8 @@ public class PlayerController : MonoBehaviour
         
     [SerializeField] ParticleSystem shoot1;
     [SerializeField] ParticleSystem shoot2;
+    [SerializeField] AudioClip shootAudio;
+    [SerializeField] AudioSource audioSource;
 
     float xMove;
     float yMove;
@@ -124,6 +126,7 @@ public class PlayerController : MonoBehaviour
          LaserOn(true);
         shoot1.Play();
         shoot2.Play();
+        audioSource.PlayOneShot(shootAudio);
          Debug.Log("I'm shooting");
      }
      else

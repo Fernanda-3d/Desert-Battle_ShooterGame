@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 894fd16be0430884082150bd278dbab7
+  - enabled: 1
     path: Assets/Scenes/Texas.unity
     guid: 4c3852ce267df0240ab2ef0c9e105941
   m_configObjects: {}

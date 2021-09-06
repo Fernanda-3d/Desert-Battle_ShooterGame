@@ -4,29 +4,19 @@ using UnityEngine;
 
 public class pickup_power : MonoBehaviour
 {
-    [SerializeField] GameObject shield;
-    [SerializeField] GameObject greenUI;
-    [SerializeField] ParticleSystem startshield1;
-    [SerializeField] ParticleSystem startshield2;
-
-            
+    [SerializeField] AudioSource audioSource;
 
     void OnTriggerEnter(Collider other) 
     {
          if(other.gameObject.tag == "Player")
-         {
-
+         {  
+             audioSource.Play();
+              PickUpController.pickup -= 1;
              Destroy(gameObject);
-             shield.SetActive(true);  
-             startshield1.Play();
-             startshield2.Play();
-             greenUI.SetActive(true);
-
-             PickUpController.pickup -= 1;
-             
+                          
          }              
               
-    }
+    } 
 
 
 }
