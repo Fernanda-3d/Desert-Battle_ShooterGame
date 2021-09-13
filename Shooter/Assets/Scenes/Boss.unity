@@ -71591,6 +71591,10 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 1293900642}
+    - target: {fileID: 1733899605245581976, guid: 51ba00774923d8f4b9ee514238d3ad31, type: 3}
+      propertyPath: fire.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <Keyboard>/e
+      objectReference: {fileID: 0}
     - target: {fileID: 2218905025333423297, guid: 51ba00774923d8f4b9ee514238d3ad31, type: 3}
       propertyPath: m_TagString
       value: Shield
