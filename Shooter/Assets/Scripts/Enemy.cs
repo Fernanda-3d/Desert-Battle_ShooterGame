@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] GameObject enemyDeath3;
     [SerializeField] GameObject enemyDeath4;
 
+   
      [SerializeField] Transform parent;
 
       void Start() 
@@ -49,6 +51,8 @@ public class Enemy : MonoBehaviour
 
     private void KillEnemy()
     {
+        
+
         GameObject vfx1 = Instantiate(enemyDeath1, transform.position, Quaternion.identity);
         GameObject vfx2 = Instantiate(enemyDeath2, transform.position, Quaternion.identity);
         GameObject vfx3 = Instantiate(enemyDeath3, transform.position, Quaternion.identity);
@@ -61,6 +65,7 @@ public class Enemy : MonoBehaviour
 
         //Debug.Log($"I'm hit! by {other.gameObject.name}" );
         Destroy(gameObject);
+        //this.gameObject.SetActive(false);
     }
 
    

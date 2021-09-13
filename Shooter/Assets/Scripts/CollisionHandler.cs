@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,11 +24,19 @@ public class CollisionHandler : MonoBehaviour
      [SerializeField] AudioSource audioSource;
      [SerializeField] AudioClip hit;
     [SerializeField] AudioClip explosion;
+    [SerializeField] GameObject life;
+    [SerializeField] GameObject collider1;
+    [SerializeField] GameObject collider2;
+    [SerializeField] GameObject collider3;
+    [SerializeField] ParticleSystem laserBeam1;
+    [SerializeField] ParticleSystem laserBeam2;
+    [SerializeField] GameObject[] enemiesLasers;
+
     
     
 
     float redDelay = 0.5f;
-    float greenDelay = 3f;
+    
 
         
     float waitForSeconds = 1f;
@@ -57,22 +66,53 @@ public class CollisionHandler : MonoBehaviour
          if(other.gameObject.tag == "Pickup")
          {
              shield.SetActive(true);  
-             greenUI.SetActive(true);                       
-             Invoke("GreenOff", greenDelay);
+             greenUI.SetActive(true);
+             life.SetActive(false);
+             collider1.SetActive(false);
+             collider2.SetActive(false);
+             collider3.SetActive(false);
+             var collisionModule = laserBeam1.GetComponent<ParticleSystem>().collision;
+             collisionModule.enabled = false;
+             var collisionModule2 = laserBeam2.GetComponent<ParticleSystem>().collision;
+             collisionModule2.enabled = false;
 
+              foreach (GameObject laser in enemiesLasers)
+         {
+             var collisionModule3 = laser.GetComponent<ParticleSystem>().collision;
+             collisionModule3.enabled = false;
          }
+             this.gameObject.GetComponent<BoxCollider>().enabled = false;                                           
+            
+             
+         }
+
+          if(other.gameObject.tag == "ShieldOff")
+          {
+              greenUI.SetActive(false);
+              shield.SetActive(false);
+              life.SetActive(true); 
+              collider1.SetActive(true);
+              collider2.SetActive(true);
+              collider3.SetActive(true);
+        var collisionModule = laserBeam1.GetComponent<ParticleSystem>().collision;
+             collisionModule.enabled = true;
+        var collisionModule2 = laserBeam2.GetComponent<ParticleSystem>().collision;
+             collisionModule2.enabled = true;
+
+             foreach (GameObject laser in enemiesLasers)
+         {
+             var collisionModule3 = laser.GetComponent<ParticleSystem>().collision;
+             collisionModule3.enabled = true;
+         }
+        this.gameObject.GetComponent<BoxCollider>().enabled = true;  
+          }
         
         //Debug.Log($"{this.name} --Triggered by-- {other.gameObject.name}");
         //string interpolation = represented by $ - Doc: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/tokens/interpolated
         
     }
 
-    void GreenOff()
-    {
-        greenUI.SetActive(false);
-        shield.SetActive(false);
-    }
-    void RedOff()
+        void RedOff()
     {
         redUI.SetActive(false);
     }
@@ -85,6 +125,28 @@ public class CollisionHandler : MonoBehaviour
              LifeController.health -= 1;
               redUI.SetActive(true);
              Invoke("RedOff", redDelay);
+
+             if(other.gameObject.tag == "Shield")
+         {
+             
+             life.SetActive(false);
+             collider1.SetActive(false);
+             collider2.SetActive(false);
+             collider3.SetActive(false);
+              var collisionModule = laserBeam1.GetComponent<ParticleSystem>().collision;
+             collisionModule.enabled = false;
+             var collisionModule2 = laserBeam2.GetComponent<ParticleSystem>().collision;
+             collisionModule2.enabled = false;
+
+              foreach (GameObject laser in enemiesLasers)
+         {
+             var collisionModule3 = laser.GetComponent<ParticleSystem>().collision;
+             collisionModule3.enabled = false;
+         }
+             this.gameObject.GetComponent<BoxCollider>().enabled = false;                                           
+             
+
+         }
 
         if(LifeController.health < 1)
         {

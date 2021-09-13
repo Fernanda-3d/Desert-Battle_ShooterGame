@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Shield
   - Pickup
+  - ShieldOff
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - UI
   - 3DUI
   - 3DShieldUI
-  - 
+  - HeadUI
   - 
   - 
   - 
