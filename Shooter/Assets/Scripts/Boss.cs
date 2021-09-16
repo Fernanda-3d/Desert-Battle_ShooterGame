@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Boss : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class Boss : MonoBehaviour
     [SerializeField] ParticleSystem explosion3;
     [SerializeField] ParticleSystem explosion4;
      [SerializeField] Transform bossParent;
+    
      
 
 
@@ -39,16 +41,23 @@ public class Boss : MonoBehaviour
 
        if(Boss_LifeController.health_boss < 1)
         {
-        
+            
+       
         explosion1.Play();
         explosion2.Play();
         explosion3.Play();
         explosion4.Play();
-        Destroy(boss);
+        Destroy(boss);        
+     
         }
          }
         
        
+    }
+
+    void Gameover()
+    {
+        SceneManager.LoadScene("GameOver");
     }
 
    /* void StartCrashSequence()

@@ -17,6 +17,8 @@ public class Enemy : MonoBehaviour
    
      [SerializeField] Transform parent;
 
+     
+
       void Start() 
     {
        this.gameObject.SetActive(false);
@@ -66,7 +68,10 @@ public class Enemy : MonoBehaviour
         //Debug.Log($"I'm hit! by {other.gameObject.name}" );
         Destroy(gameObject);
         //this.gameObject.SetActive(false);
+    
     }
+
+   
 
    
 }

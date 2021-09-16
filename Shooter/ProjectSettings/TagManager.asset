@@ -9,6 +9,7 @@ TagManager:
   - Shield
   - Pickup
   - ShieldOff
+  - BossLevel
   layers:
   - Default
   - TransparentFX

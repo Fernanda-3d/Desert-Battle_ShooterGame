@@ -31,6 +31,7 @@ public class CollisionHandler : MonoBehaviour
     [SerializeField] ParticleSystem laserBeam1;
     [SerializeField] ParticleSystem laserBeam2;
     [SerializeField] GameObject[] enemiesLasers;
+    public Animator transition;
 
     
     
@@ -106,6 +107,19 @@ public class CollisionHandler : MonoBehaviour
          }
         this.gameObject.GetComponent<BoxCollider>().enabled = true;  
           }
+
+           if(other.gameObject.tag == "BossLevel")
+           {
+              StartCoroutine(LoadBoss(SceneManager.GetActiveScene().buildIndex + 1));
+              
+           }
+           
+           IEnumerator LoadBoss(int levelIndex)
+           {
+               transition.SetTrigger("Start");
+               yield return new WaitForSeconds(1);
+               SceneManager.LoadScene(levelIndex);
+           }
         
         //Debug.Log($"{this.name} --Triggered by-- {other.gameObject.name}");
         //string interpolation = represented by $ - Doc: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/tokens/interpolated

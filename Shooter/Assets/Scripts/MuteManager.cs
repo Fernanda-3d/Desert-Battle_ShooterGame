@@ -11,6 +11,8 @@ public class MuteManager : MonoBehaviour
     public Image soundOn;
     public Image soundOff;
     public GameObject pausePanel;
+    [SerializeField] float loadDelay = 1.0f;
+    [SerializeField] AudioSource clickSound;
 
     /*[SerializeField] float levelLoadDelay = 1.0f;
     public AudioClip play;
@@ -100,17 +102,26 @@ public class MuteManager : MonoBehaviour
 
     public void PauseButtom()
     {
+        clickSound.Play();
        pausePanel.SetActive(true);
     }
 
     public void Quit()
     {
+        clickSound.Play();
         Application.Quit();
     }
 
      public void Play()
     {
+        clickSound.Play();
         SceneManager.LoadScene("Menu");
+    }
+
+    public void Restart()
+    {
+        clickSound.Play();
+        SceneManager.LoadScene("Texas");
     }
 
    
