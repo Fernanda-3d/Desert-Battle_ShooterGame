@@ -8,17 +8,16 @@ using System;
 public class timer : MonoBehaviour
 {
    public TMP_Text timerText;
-   public TMP_Text savedTime;
+  // public TMP_Text savedTime;
    float startTime;
+
     void Start()
     {
         startTime = Time.time;
-        savedTime.text = PlayerPrefs.GetFloat("Time", 0).ToString();
-        
+       // timerText.text = PlayerPrefs.GetFloat("Time", 0).ToString();  
 
        
-
-    
+   
     }
 
     // Update is called once per frame
@@ -33,5 +32,7 @@ public class timer : MonoBehaviour
         
 
         PlayerPrefs.SetFloat("Time", t);
+
+       
     }
 }

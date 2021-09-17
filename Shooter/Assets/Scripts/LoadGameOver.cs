@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LoadGameOver : MonoBehaviour
 {
-    float delay = 4f;
+    float delay = 3f;
     float timeElapsed;
     void Start()
     {
