@@ -7,7 +7,9 @@ public class Boss_LifeController : MonoBehaviour
 {
      public GameObject life1, life2, life3, life4, life5, life6, life7, life8, life9, life10;
      public GameObject boss;
-     public GameObject loadLevel;
+    // public GameObject loadLevel;
+
+    public GameObject gameOverCanvas;
     public static int health_boss;
 
     // Start is called before the first frame update
@@ -177,7 +179,8 @@ public class Boss_LifeController : MonoBehaviour
         life10.gameObject.SetActive(false);  
         Destroy(boss, 3f); 
 
-        loadLevel.SetActive(true);    
+        //loadLevel.SetActive(true);    
+        gameOverCanvas.SetActive(true);
         
         break;
 

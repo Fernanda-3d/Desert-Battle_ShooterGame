@@ -7,6 +7,7 @@ public class LoadGameOver : MonoBehaviour
 {
     float delay = 3f;
     float timeElapsed;
+    public GameObject gameOverPanel;
     void Start()
     {
         this.gameObject.SetActive(false);
@@ -19,7 +20,7 @@ public class LoadGameOver : MonoBehaviour
 
         if (timeElapsed > delay)
         {
-            SceneManager.LoadScene("GameOver");
+            gameOverPanel.SetActive(true);
         }
     }
 }

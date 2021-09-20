@@ -17,6 +17,15 @@ public class Boss : MonoBehaviour
      [SerializeField] Transform bossParent;
     
      
+     void Start()
+     {
+         BeginGame();
+     }
+
+     public void BeginGame()
+     {
+         TimerController.instance.BeginTimer();
+     }
 
 
     
@@ -57,7 +66,8 @@ public class Boss : MonoBehaviour
 
     void Gameover()
     {
-        SceneManager.LoadScene("GameOver");
+       // SceneManager.LoadScene("GameOver");
+        TimerController.instance.EndTimer();
     }
 
    /* void StartCrashSequence()

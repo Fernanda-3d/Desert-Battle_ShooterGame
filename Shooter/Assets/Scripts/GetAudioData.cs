@@ -18,6 +18,7 @@ public class GetAudioData : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
         GetSpectrumAudio();
         MakeFrequencyBands();
     }
@@ -29,6 +30,8 @@ public class GetAudioData : MonoBehaviour
 
     void MakeFrequencyBands()
     {
+
+        
         int count = 0;
         for (int i = 0; i < 8; i++)
         {
