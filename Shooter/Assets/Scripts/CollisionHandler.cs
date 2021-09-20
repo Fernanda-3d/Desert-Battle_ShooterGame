@@ -40,7 +40,7 @@ public class CollisionHandler : MonoBehaviour
     
     
 
-    //float redDelay = 0.5f;
+    float redDelay = 0.5f;
     
 
         
@@ -59,7 +59,7 @@ public class CollisionHandler : MonoBehaviour
           audioSource.PlayOneShot(hit);
          LifeController.health -= 1;
         redUI.SetActive(true);
-       // Invoke("RedOff", redDelay);
+       Invoke("RedOff", redDelay);
 
          if(LifeController.health < 1)
         {
@@ -234,10 +234,10 @@ public class CollisionHandler : MonoBehaviour
         
     }
 
-        /*void RedOff()
+        void RedOff()
     {
         redUI.SetActive(false);
-    } */
+    } 
 
     void OnParticleCollision(GameObject other) 
     {
