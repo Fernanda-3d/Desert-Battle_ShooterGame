@@ -52,6 +52,11 @@ public class CollisionHandler : MonoBehaviour
         
     }
 
+     void RedOff()
+    {
+        redUI.SetActive(false);
+    } 
+
    void OnTriggerEnter(Collider other) 
     {
          if(other.gameObject.tag == "Enemy")
@@ -234,10 +239,7 @@ public class CollisionHandler : MonoBehaviour
         
     }
 
-        void RedOff()
-    {
-        redUI.SetActive(false);
-    } 
+       
 
     void OnParticleCollision(GameObject other) 
     {
@@ -246,7 +248,7 @@ public class CollisionHandler : MonoBehaviour
              audioSource.PlayOneShot(hit);
              LifeController.health -= 1;
               redUI.SetActive(true);
-             //Invoke("RedOff", redDelay);
+             Invoke("RedOff", redDelay);
 
              if(other.gameObject.tag == "Shield")
          {
